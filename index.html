@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ESP32 LED Control</title>
+</head>
+<body>
+    <h1>Controla el LED del ESP32</h1>
+    <button onclick="toggleLED('on')">Encender LED</button>
+    <button onclick="toggleLED('off')">Apagar LED</button>
+
+    <script>
+        function toggleLED(state) {
+            var xhr = new XMLHttpRequest();
+            var url = `http://<ESP32_IP_ADDRESS>/led/${state}`;
+            xhr.open("GET", url, true);
+            xhr.send();
+        }
+    </script>
+</body>
+</html>
