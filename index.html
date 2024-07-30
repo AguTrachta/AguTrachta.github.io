@@ -1,20 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>ESP32 LED Control</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcripción Médica</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Controla el LED del ESP32</h1>
-    <button onclick="toggleLED('on')">Encender LED</button>
-    <button onclick="toggleLED('off')">Apagar LED</button>
-
-    <script>
-        function toggleLED(state) {
-            var xhr = new XMLHttpRequest();
-            var url = `http://192.168.0.229/led/${state}`;
-            xhr.open("GET", url, true);
-            xhr.send();
-        }
-    </script>
+    <div class="container">
+        <h1>Transcripción Médica</h1>
+        <div class="auth-container">
+            <div class="auth-forms">
+                <form id="register-form">
+                    <h2>Registro</h2>
+                    <input type="email" id="register-email" placeholder="Email" required>
+                    <input type="password" id="register-password" placeholder="Contraseña" required>
+                    <button type="submit">Registrarse</button>
+                </form>
+                <form id="login-form">
+                    <h2>Inicio de Sesión</h2>
+                    <input type="email" id="login-email" placeholder="Email" required>
+                    <input type="password" id="login-password" placeholder="Contraseña" required>
+                    <button type="submit">Iniciar Sesión</button>
+                </form>
+            </div>
+        </div>
+        <div class="transcription-container">
+            <h2>Transcripción de Audio</h2>
+            <input type="file" id="audio-upload" accept="audio/*">
+            <button id="start-recording">Grabar</button>
+            <button id="stop-recording">Detener</button>
+            <textarea id="transcription-text" placeholder="Transcripción aparecerá aquí..." readonly></textarea>
+            <button id="generate-pdf">Generar PDF</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
 </body>
 </html>
