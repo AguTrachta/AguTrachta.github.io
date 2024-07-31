@@ -27,6 +27,10 @@ app.get('/', (req, res) => {
 });
 
 app.post('/transcribe', upload.single('audio'), async (req, res) => {
+  if (!req.file) {
+    return res.status(400).json({ error: 'No file uploaded' });
+  }
+
   const audioFilePath = req.file.path;
   const audioBytes = fs.readFileSync(audioFilePath).toString('base64');
 
