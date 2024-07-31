@@ -42,7 +42,7 @@ document.getElementById('stop-recording').addEventListener('click', () => {
         const formData = new FormData();
         formData.append('audio', audioFile);
 
-        fetch('https://us-central1-decent-glazing-431020-n5.cloudfunctions.net/app/transcribe', {
+        fetch('https://us-central1-decent-glazing-431020-n5.cloudfunctions.net/app', {
             method: 'POST',
             body: formData
         })
