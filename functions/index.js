@@ -21,11 +21,12 @@ const upload = multer({ dest: os.tmpdir() });
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Rutas
+// Ruta principal para verificar el funcionamiento
 app.get('/', (req, res) => {
   res.send('Servidor funcionando');
 });
 
+// Ruta para la transcripción de audio
 app.post('/transcribe', upload.single('audio'), async (req, res) => {
   if (!req.file) {
     return res.status(400).json({ error: 'No file uploaded' });
