@@ -1,3 +1,23 @@
+// Importar las funciones necesarias de los SDKs de Firebase
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
+// Configuración de Firebase de tu aplicación web
+const firebaseConfig = {
+  apiKey: "AIzaSyDufmFSegCK1tJ3o692pYBC8yXDBMloFvY",
+  authDomain: "decent-glazing-431020-n5.firebaseapp.com",
+  projectId: "decent-glazing-431020-n5",
+  storageBucket: "decent-glazing-431020-n5.appspot.com",
+  messagingSenderId: "39297025905",
+  appId: "1:39297025905:web:86414a0c8e7441ebcdd8d0",
+  measurementId: "G-3GN2J130FK"
+};
+
+// Inicializar Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+// Código para manejar la grabación de audio y transcripción
 let mediaRecorder;
 let audioChunks = [];
 
